@@ -16,63 +16,59 @@ sc07B & h::
 	Return
 sc07B & b::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{Left}
+		send, {Left}
+	Return
+	If GetKeyState("Alt", "P")
+		send, ^{Left}
 	Return
 sc07B & f::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{Right}
+		send, {Right}
+	Return
+	If GetKeyState("Alt", "P")
+		send, ^{Right}
 	Return
 sc07B & p::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{Up}
+		send, {Up}
 	Return
 sc07B & n::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{Down}
+		send, {Down}
 	Return
 sc07B & a::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{Home}
+		send, {Home}
 	Return
 sc07B & e::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{End}
+		send, {End}
 	Return
 sc07B & d::
 	If GetKeyState("Ctrl", "P")
-		send, {Blind}{Del}
+		send, {Del}
+	else GetKeyState("Alt", "P")
+		send, ^{Del}
 	Return
 sc07B & k::
 	If GetKeyState("Ctrl", "P")
-		send,+{Blind}{End}{Del}
+		send,+{End}{Del}
 	Return
 sc07B & u::
 	If GetKeyState("Ctrl", "P")
-		send,+{Blind}{Home}{Del}
+		send,+{Home}{Del}
 	Return
 sc07B & w::
 	If GetKeyState("Ctrl", "P")
-		send, ^{Blind}{BS}
+		send, ^{BS}
 	Return
 sc07B & y::
 	If GetKeyState("Ctrl", "P")
-		send, ^{Blind}{v]
+		send, ^{v]
 	Return
 sc07B & q::
 	If GetKeyState("Ctrl", "P")
 		send, {ESC}
-	Return
-!f::
-	If GetKeyState("Ctrl", "P")
-		send, ^{Blind}{Right}
-	Return
-!b::
-	If GetKeyState("Ctrl", "P")
-		send, ^{Blind}{Left}
-	Return
-!d::
-	If GetKeyState("Ctrl", "P")
-		send, ^{Blind}{Del}
 	Return
 ; FPSでよく使うWASDキーをマウスカーソルの移動に使う
 ; 変換 + WASD = マウスカーソル上, 左, 下, 右
@@ -98,7 +94,7 @@ sc079 & M Up::MouseClick,left,,,,,U
 ; 変換 + , = 右クリック（押し続けるとドラッグ）
 sc079 & ,::MouseClick,Right,,,,,D
 sc079 & , Up::MouseClick,Right,,,,,U
-; 変換 + H/L = スクロール
+; 変換 + J/KS = スクロール
 sc079 & j::WheelDown
 sc079 & k::WheelUp
 sc079 & h::Send,!{Left}
@@ -107,6 +103,6 @@ sc079 & u::Send,{Blind}{End}
 sc079 & i::Send,{Blind}{Home}
 sc079 & n::Send,#+{left}
 sc079 & .::Send,#+{Right}
-sc079 & o::WinMinimize,A
-sc079 & y::WinMaximize,A 
-sc079 & sc028::Send,{Enter}
+sc079 & o::WinMaximize,A
+sc079 & y::WinMinimize,A
+sc079 & sc027::Send,{Enter}
